@@ -1,6 +1,8 @@
 require "terminal-table"
 
 input_string = ARGV[0]
+options = ARGV.drop(1)
+
 bytes = input_string.bytes.map { |e| e.to_s(2)}.size
 visible_character_count = input_string.scan(/\X/).size # 'grapheme' count (https://bugs.ruby-lang.org/issues/13780)
 ascii_representation = begin
@@ -50,3 +52,9 @@ end
 
 table = Terminal::Table.new(headings: headings, rows: rows)
 puts table
+
+if options.include?("bits")
+  puts "" # newline
+  puts "Here is `#{input_string}` represented in bits:"
+  puts input_string.unpack("B*")
+end

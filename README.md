@@ -70,3 +70,9 @@ This input cannot be stored as ASCII (unless you provide fallbacks for the non-A
 | 🎉        | 4     | ["11110000", "10011111", "10001110", "10001001"] | 11110000100111111000111010001001 |
 +-----------+-------+--------------------------------------------------+----------------------------------+
 ```
+
+## Options
+
+You can pass `bits` to see the bit sequence of the entire input string.
+
+E.g. `ruby run.rb "Hello world" bits`
